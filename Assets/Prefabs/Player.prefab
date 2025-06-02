@@ -230,14 +230,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4603889599055291162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 246a22a059fc1684982d1b1049b9b5f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0018b249a7a88184c900a7de25a5e05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
   groundCheck: {fileID: 884940265895948667}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!1 &6675897706116181411
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6675897706116181411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f4174434fd745145b17c6bc45f2d601, type: 3}
+  m_Script: {fileID: 11500000, guid: ba1957c547a0cfe41a3989f612036b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensivity: 100
