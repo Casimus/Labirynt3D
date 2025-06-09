@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    [SerializeField] private float rotationSpeed = 5f;
     public virtual void Picked()
     {
         //Debug.Log("Picked up");
@@ -10,6 +11,6 @@ public class PickUp : MonoBehaviour
 
     public void Rotation()
     {
-        transform.Rotate(new Vector3(0, 5f, 0));
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime );
     }
 }

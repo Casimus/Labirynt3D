@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4530690492018364593
+--- !u!1001 &795955792218420153
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -61,39 +61,40 @@ PrefabInstance:
     - target: {fileID: 7770663171155406318, guid: bce219465dde8d048856fdc6ad518509,
         type: 3}
       propertyPath: m_Name
-      value: Crystal
+      value: Freez
       objectReference: {fileID: 0}
     - target: {fileID: 8309214513993133421, guid: bce219465dde8d048856fdc6ad518509,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 77e09a692cd292c41a68090778595a36, type: 2}
-    m_RemovedComponents: []
+      objectReference: {fileID: 2100000, guid: 6322ed6b2a2484a45b18f0a9173e4fb8, type: 2}
+    m_RemovedComponents:
+    - {fileID: 7770663171155406315, guid: bce219465dde8d048856fdc6ad518509, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7770663171155406318, guid: bce219465dde8d048856fdc6ad518509,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5980713889264624958}
+      addedObject: {fileID: 3684607903107307042}
   m_SourcePrefab: {fileID: 100100000, guid: bce219465dde8d048856fdc6ad518509, type: 3}
---- !u!1 &6140321661529046367 stripped
+--- !u!1 &6979802517298896471 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7770663171155406318, guid: bce219465dde8d048856fdc6ad518509,
     type: 3}
-  m_PrefabInstance: {fileID: 4530690492018364593}
+  m_PrefabInstance: {fileID: 795955792218420153}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5980713889264624958
+--- !u!114 &3684607903107307042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6140321661529046367}
+  m_GameObject: {fileID: 6979802517298896471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4104d0e735d7be9438a9555c815bea65, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a92a836fc7496d4888f33a597dbeb1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
-  points: 5
+  freezTime: 10
