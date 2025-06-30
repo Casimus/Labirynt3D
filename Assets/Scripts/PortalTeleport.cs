@@ -18,18 +18,19 @@ public class PortalTeleport : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playerIsOverlapping)
+        if (playerIsOverlapping && Vector3.Dot(player.forward ,receiver.forward)>0.5)
         {
             playerIsOverlapping = false;
             player.transform.position = receiver.position;
+            player.transform.rotation = receiver.rotation;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        
-
+        if (other.gameObject.tag != "Player") return;
         if (playerIsOverlapping) return;
+
         Debug.Log(other.tag);
         playerIsOverlapping = true;
        

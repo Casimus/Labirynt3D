@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         CancelInvoke("Stopper");
         if (win)
         {
-            Debug.Log("You Win!!! Reoad?");
+            Debug.Log("You Win!!! Reload?");
         } else
         {
             Debug.Log("You Lose!!! Reload?");
