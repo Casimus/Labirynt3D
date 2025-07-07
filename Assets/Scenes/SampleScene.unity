@@ -1548,6 +1548,11 @@ PrefabInstance:
       propertyPath: otherPortal
       value: 
       objectReference: {fileID: 1862461720}
+    - target: {fileID: 9212527321681465266, guid: e85becbada19b2d4090fa466343c417b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a71c847d1191a0b4e9c24fbff9235236, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
