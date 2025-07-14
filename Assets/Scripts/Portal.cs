@@ -8,6 +8,8 @@ public class Portal : MonoBehaviour
     [SerializeField] Material material;
     [SerializeField] RenderTexture displayTexture;
     [SerializeField] float openRange = 2f;
+    [SerializeField] KeyColor color;
+    [SerializeField] GameObject door;
 
     public Camera myCamera;
 
@@ -16,12 +18,22 @@ public class Portal : MonoBehaviour
 
     private GameObject player;
     private bool isOpen = false;
+    private Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+
+    }
+
 
     void Start()
     {
         renderSurface.GetComponent<Renderer>().material = material;
         otherPortal.myCamera.targetTexture = displayTexture;
         player = GameObject.FindWithTag("Player");
+
+        portalCollider.gameObject.SetActive(false);
     }
 
     void Update()
@@ -30,20 +42,47 @@ public class Portal : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && IsInRange() && CanOpen())
         {
-            // uruchom animacje
-            // odblokuj portal
+            OpenPortal();
+
         }
+    }
+
+    private void OpenPortal()
+    {
+        // uruchom animacje
+        animator.SetTrigger("open");
+        if (color == KeyColor.Red)
+        {
+            GameManager.Instantion.redKey--;
+        }
+        else if (color == KeyColor.Green)
+        {
+            GameManager.Instantion.greenKey--;
+        }
+        else if (color == KeyColor.Gold)
+        {
+            GameManager.Instantion.goldKey--;
+        }
+        portalCollider.gameObject.SetActive(true);
+        door.SetActive(false);
     }
 
     private bool IsInRange()
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
+        Debug.Log(distance);
         return distance <= openRange;
     }
 
     private bool CanOpen()
     {
-        return true;
+        if (color == KeyColor.Red && GameManager.Instantion.redKey > 0 ||
+            color == KeyColor.Green && GameManager.Instantion.greenKey > 0 ||
+            color == KeyColor.Gold && GameManager.Instantion.greenKey > 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public Transform GetOtherPortal()
