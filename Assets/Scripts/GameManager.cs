@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,14 +8,23 @@ public class GameManager : MonoBehaviour
     public int timeToEnd;
 
     public int points = 0;
-
     public int redKey = 0;
     public int greenKey = 0;
     public int goldKey = 0;
+    private bool isFreezed = false;
 
     bool gamePaused = false;
     bool endGame = false;
     bool win = false;
+
+    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] TextMeshProUGUI crystals;
+    [SerializeField] TextMeshProUGUI GoldKeyText;
+    [SerializeField] TextMeshProUGUI GreenKeyText;
+    [SerializeField] TextMeshProUGUI RedKeyText;
+    [SerializeField] Image freezeImage;
+
+
     void Awake()
     {
         if (Instantion == null)
@@ -48,9 +57,14 @@ public class GameManager : MonoBehaviour
 
     void Stopper()
     {
+        freezeImage.enabled = false;
         timeToEnd--;
-        //Debug.Log("Time: " + timeToEnd + " s");
+
+        int minutes = timeToEnd / 60;
+        int seconds = timeToEnd % 60;
         
+        timerText.text = minutes + ":" + seconds;
+
         if (timeToEnd <= 0)
         {
             timeToEnd = 0;
@@ -92,6 +106,7 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int point)
     {
         points += point;
+        crystals.text = points.ToString();
     }
 
     public void AddTime(int addTime)
@@ -101,6 +116,7 @@ public class GameManager : MonoBehaviour
     public void FreezTime(int freez)
     {
         CancelInvoke("Stopper");
+        freezeImage.enabled = true;
         InvokeRepeating("Stopper", freez, 1);
     }
 
@@ -109,14 +125,17 @@ public class GameManager : MonoBehaviour
         if (color == KeyColor.Gold)
         {
             goldKey++;
+            GoldKeyText.text = goldKey.ToString();
         }
         else if (color == KeyColor.Green)
         {
             greenKey++;
+            GreenKeyText.text = greenKey.ToString();
         }
         else if (color == KeyColor.Red)
         {
             redKey++;
+            RedKeyText.text = redKey.ToString();
         }
     }
 
