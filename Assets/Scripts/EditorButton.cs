@@ -10,6 +10,7 @@ public class EditorButton : Editor
         if(GUILayout.Button("Create Labirynth"))
         {
             generator.GenerateLabirynth();
+            generator.ColorTheChildren();
         }
     }
 }

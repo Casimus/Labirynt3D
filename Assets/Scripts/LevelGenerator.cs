@@ -45,11 +45,11 @@ public class LevelGenerator : MonoBehaviour
             {
                 if (Random.Range(1, 100) % 3 == 0)
                 {
-                    child.gameObject.GetComponent<Renderer>().material = materials[0];
+                    child.gameObject.GetComponentInChildren<Renderer>().material = materials[0];
                 }
                 else
                 {
-                    child.gameObject.GetComponent<Renderer>().material = materials[1];
+                    child.gameObject.GetComponentInChildren<Renderer>().material = materials[1];
                 }
             }
 
@@ -61,12 +61,12 @@ public class LevelGenerator : MonoBehaviour
                     {
                         if (Random.Range(1, 100) % 3 == 0)
                         {
-                            grandchild.gameObject.GetComponent<Renderer>().material =
+                            grandchild.gameObject.GetComponentInChildren<Renderer>().material =
                                 materials[0];
                         }
                         else
                         {
-                            grandchild.gameObject.GetComponent<Renderer>().material =
+                            grandchild.gameObject.GetComponentInChildren<Renderer>().material =
                                 materials[1];
                         }
                     }
