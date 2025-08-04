@@ -99,6 +99,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 279781606927176123}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1450280311055682879 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 3042266e213a74b4983d1e77c5aeb6f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 279781606927176123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6404995458745240739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,4 +231,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
+  model: {fileID: 1450280311055682879}
   time: -5

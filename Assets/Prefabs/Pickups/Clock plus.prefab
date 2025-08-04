@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  model: {fileID: 7271811775309625327}
   time: 5
 --- !u!4 &4158765678787453877 stripped
 Transform:
@@ -202,6 +203,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea61311305d7b1b439e42e31d07eadfc, type: 3}
+--- !u!23 &7271811775309625327 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: ea61311305d7b1b439e42e31d07eadfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8298797012589456235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8404146352024112256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ea61311305d7b1b439e42e31d07eadfc,

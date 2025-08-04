@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7770663171155406315, guid: bce219465dde8d048856fdc6ad518509,
+        type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 8707015048282329938}
     - target: {fileID: 7770663171155406318, guid: bce219465dde8d048856fdc6ad518509,
         type: 3}
       propertyPath: m_Name
@@ -122,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  model: {fileID: 8707015048282329938}
   points: 5
 --- !u!1001 &8004055063062106070
 PrefabInstance:
@@ -214,6 +220,12 @@ PrefabInstance:
 --- !u!4 &7538644045208660029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4023c825acc83804eb30e39766e25d99,
+    type: 3}
+  m_PrefabInstance: {fileID: 8004055063062106070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8707015048282329938 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4023c825acc83804eb30e39766e25d99,
     type: 3}
   m_PrefabInstance: {fileID: 8004055063062106070}
   m_PrefabAsset: {fileID: 0}

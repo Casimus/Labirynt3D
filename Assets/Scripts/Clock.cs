@@ -5,8 +5,9 @@ public class Clock : PickUp
     private int time = 5;
     public override void Picked()
     {
+        base.Picked();
         GameManager.Instantion.AddTime(time);
-        Destroy(this.gameObject);
+        
     }
     void Update()
     {
