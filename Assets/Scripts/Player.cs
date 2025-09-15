@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -18,7 +16,6 @@ public class Player : MonoBehaviour
         GameObject pickup = hit.collider.gameObject;
         if (!pickup.TryGetComponent(out PickUp pickUp)) return;
         pickUp.Picked();
-
-        
     }
+    
 }

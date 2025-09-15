@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Portal : MonoBehaviour
@@ -13,10 +11,32 @@ public class Portal : MonoBehaviour
     public Transform renderSurface;
     public Transform portalCollider;
 
+    [SerializeField] private GameObject key;
+    [SerializeField] private GameObject door;
+    [SerializeField] private Material keyColor;
+
+    private Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Start()
     {
         renderSurface.GetComponent<Renderer>().material = material;
         otherPortal.myCamera.targetTexture = displayTexture;
+
+        key.GetComponent<Renderer>().material = keyColor;
+        door.GetComponent<Renderer>().material = keyColor;
+    }
+
+    void Update()
+    {
+        if ( Input.GetKeyDown(KeyCode.E))
+        {
+            animator.SetTrigger("open");
+        }
     }
 
     public Transform GetOtherPortal()
