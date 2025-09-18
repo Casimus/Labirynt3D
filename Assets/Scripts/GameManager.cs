@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
 
     public int points = 0;
 
-    public int redKey = 0;
-    public int greenKey = 0;
-    public int goldKey = 0;
+    //public int redKey = 0;
+    //public int greenKey = 0;
+    //public int goldKey = 0;
+
+    public Dictionary<KeyColor, int> keys;
 
     bool gamePaused = false;
     bool endGame = false;
@@ -25,7 +27,10 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-
+        keys = new Dictionary<KeyColor, int>();
+        keys.Add(KeyColor.Red, 0);
+        keys.Add(KeyColor.Green, 0);
+        keys.Add(KeyColor.Gold, 0);
         InvokeRepeating("Stopper", 2, 1);
     }
 
@@ -106,18 +111,7 @@ public class GameManager : MonoBehaviour
 
     public void AddKey(KeyColor color)
     {
-        if (color == KeyColor.Gold)
-        {
-            goldKey++;
-        }
-        else if (color == KeyColor.Green)
-        {
-            greenKey++;
-        }
-        else if (color == KeyColor.Red)
-        {
-            redKey++;
-        }
+        keys[color]++;
     }
 
     void PickUpCheck()
@@ -125,7 +119,9 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             Debug.Log("Actual Time: " + timeToEnd);
-            Debug.Log("Key red: " + redKey + " green: " + greenKey + " gold: " + goldKey);
+            Debug.Log("Key red: " + keys[KeyColor.Red] + 
+                " green: " + keys[KeyColor.Green] + 
+                " gold: " + keys[KeyColor.Gold]);
             Debug.Log("Points: " + points);
         }
     }
