@@ -5,6 +5,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private Texture2D map;
     [SerializeField] private ColorToPrefab[] colorMaping;
     [SerializeField] private float offset = 5f;
+    [SerializeField] private Material[] wallMaterials;
 
 
     private void GenerateTile(int x, int z)
@@ -17,10 +18,16 @@ public class LevelGenerator : MonoBehaviour
         {
             if (color.color == pixelColor)
             {
-                Instantiate(color.prefab,
-                    new Vector3(x, 0, z) * offset,
-                    Quaternion.identity,
-                    transform);
+                var newObject = Instantiate(color.prefab, new Vector3(x, 0, z) * offset,
+                    Quaternion.identity,transform);
+
+                if (newObject.tag == "Wall")
+                {
+                    var wallMaterial = Random.Range(0, wallMaterials.Length);
+
+                    newObject.GetComponentInChildren<Renderer>().material =
+                        wallMaterials[wallMaterial];
+                }
             }
         }
 
