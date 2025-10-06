@@ -3,8 +3,9 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     [SerializeField] private Texture2D map;
-    [SerializeField] private ColorToPrefab[] colorsToPrefab;
+    [SerializeField] private ColorToPrefab[] colorMaping;
     [SerializeField] private float offset = 5f;
+    [SerializeField] private Material[] wallMaterials;
 
 
     private void GenerateTile(int x, int z)
@@ -13,13 +14,20 @@ public class LevelGenerator : MonoBehaviour
 
         if (pixelColor.a == 0) return;
 
-
-        foreach (var color in colorsToPrefab)
+        foreach (var color in colorMaping)
         {
             if (color.Color == pixelColor)
             {
-                Instantiate(color.Prefab, new Vector3(x, 0, z) * offset , 
-                    Quaternion.identity, transform) ;
+                var newObject = Instantiate(color.Prefab, new Vector3(x, 0, z) * offset,
+                    Quaternion.identity,transform);
+
+                if (newObject.tag == "Wall")
+                {
+                    var wallMaterial = Random.Range(0, wallMaterials.Length);
+
+                    newObject.GetComponentInChildren<Renderer>().material =
+                        wallMaterials[wallMaterial];
+                }
             }
         }
 
@@ -27,14 +35,12 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateLabirynth()
     {
-        for (int i = 0; i < map.width; i++)
+        for (int x = 0; x < map.width; x++)
         {
-            for (int j= 0; j < map.height; j++)
+            for (int z = 0; z < map.height; z++)
             {
-                GenerateTile(i, j);
+                GenerateTile(x, z);
             }
         }
     }
-
-
 }
