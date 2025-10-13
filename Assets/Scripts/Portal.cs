@@ -37,7 +37,7 @@ public class Portal : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && CanOpen() && HasKey())
         {
             animator.SetTrigger("open");
-            GameManager.Instantion.keys[color]--;
+            GameManager.Instantion.UseKey(color);
         }
     }
 
